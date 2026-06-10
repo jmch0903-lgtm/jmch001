@@ -447,6 +447,16 @@ img {
   margin-top: 4px;
 }
 
+/* Gold Rating Star Custom styling */
+.star-icon-gold {
+  color: #ffd700 !important;
+  background: rgba(255, 215, 0, 0.15) !important;
+}
+
+.star-pct {
+  color: #ffd700 !important;
+}
+
 /* About Section */
 .section-header {
   text-align: center;

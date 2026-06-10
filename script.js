@@ -135,4 +135,41 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 600);
     });
   });
+
+  /* 8. Count-Up Animation for Stats */
+  const counters = document.querySelectorAll('.counter');
+  const statsSection = document.querySelector('.stats');
+  
+  const countUp = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const isFloat = counter.getAttribute('data-target').includes('.');
+    const duration = 2000; // 2 seconds animation
+    const stepTime = 30; // 30ms updates
+    const steps = duration / stepTime;
+    const increment = target / steps;
+    let current = 0;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        clearInterval(timer);
+        counter.textContent = isFloat ? target.toFixed(1) : Math.round(target).toLocaleString('ko-KR');
+      } else {
+        counter.textContent = isFloat ? current.toFixed(1) : Math.round(current).toLocaleString('ko-KR');
+      }
+    }, stepTime);
+  };
+
+  const statsObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        counters.forEach(counter => countUp(counter));
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  if (statsSection) {
+    statsObserver.observe(statsSection);
+  }
 });
