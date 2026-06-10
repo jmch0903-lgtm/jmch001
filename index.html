@@ -372,6 +372,19 @@
     <span class="kakao-tooltip">상담 환영!</span>
   </a>
 
+  <!-- Floating Kakao QR Code (Bottom Left) -->
+  <div class="floating-qr" id="floating-qr">
+    <button class="qr-close" id="qr-close" aria-label="닫기"><i class="fa-solid fa-xmark"></i></button>
+    <div class="qr-header">
+      <i class="fa-solid fa-qrcode"></i>
+      <span>오픈채팅 스캔</span>
+    </div>
+    <div class="qr-image-wrapper">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&amp;data=https://open.kakao.com/o/saAmwEyi" alt="KakaoTalk Open Chat QR Code" class="qr-img">
+    </div>
+    <p class="qr-tip">카메라로 스캔</p>
+  </div>
+
   <!-- JavaScript -->
   <script src="script.js"></script>
 </body>

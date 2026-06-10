@@ -172,4 +172,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (statsSection) {
     statsObserver.observe(statsSection);
   }
+
+  /* 9. Floating QR Code Close Handler */
+  const qrCloseBtn = document.getElementById('qr-close');
+  const qrContainer = document.getElementById('floating-qr');
+  
+  if (qrCloseBtn && qrContainer) {
+    qrCloseBtn.addEventListener('click', () => {
+      qrContainer.classList.add('hidden');
+    });
+  }
 });

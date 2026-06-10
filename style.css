@@ -1003,6 +1003,98 @@ img {
   transform: translateY(0);
 }
 
+/* Floating QR Code (Bottom Left) */
+.floating-qr {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  width: 146px;
+  padding: 14px;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  text-align: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, visibility 0.4s ease;
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.floating-qr.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-30px) !important;
+  pointer-events: none;
+}
+
+.qr-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 18px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.qr-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-main);
+}
+
+.qr-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.qr-image-wrapper {
+  background: white;
+  padding: 6px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.qr-img {
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+
+.qr-tip {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
 /* Mobile & Tablet Responsive Layouts */
 @media (max-width: 1024px) {
   .hero-title {
@@ -1027,6 +1119,10 @@ img {
 }
 
 @media (max-width: 768px) {
+  .floating-qr {
+    display: none !important;
+  }
+
   .header-container {
     padding: 0 20px;
   }
