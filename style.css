@@ -964,6 +964,17 @@ img {
   margin-bottom: 6px;
 }
 
+.footer-email {
+  color: #ffeb3b !important;
+  font-weight: 700 !important;
+  transition: var(--transition-smooth);
+}
+
+.footer-email:hover {
+  color: var(--secondary) !important;
+  text-decoration: underline;
+}
+
 .copyright {
   margin-top: 12px;
   font-size: 0.8rem;
